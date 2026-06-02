@@ -13,142 +13,218 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <style>
-  body {
-      font-family: 'Jost';font-size: 16px;
-  }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      color: #333;
+      padding-top: 60px;
+    }
 
-  .h3, h3 {
-      font-family: 'Merriweather';font-size: 24px;
-  }
+    /* Navbar */
+    .navbar-default {
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: none;
+    }
+    .navbar-brand {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+.navbar-default .navbar-nav > li > a {
+      color: #555;
+    }
+    .navbar-default .navbar-nav > li > a:hover {
+      color: #000;
+    }
+
+    /* Layout */
+    .main-row {
+      margin-top: 30px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Sidebar */
+    .sidebar-sticky {
+      position: sticky;
+      top: 75px;
+    }
+    .sidebar-photo {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .sidebar-name {
+      font-family: 'Merriweather', serif;
+      font-size: 26px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .sidebar-title {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .sidebar-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 15px;
+    }
+    .sidebar-links li {
+      margin-bottom: 5px;
+    }
+
+    /* Headings */
+    h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #eee;
+    }
+    h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
+    /* Bio */
+    .bio {
+      text-align: justify;
+      margin-top: 4px;
+    }
+
+    /* Publications */
+    .publications-list {
+      padding-left: 20px;
+    }
+    .publications-list li {
+      margin-bottom: 14px;
+    }
+    .pub-links {
+      margin-top: 4px;
+    }
+    .pub-links a {
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
   </style>
 </head>
 <body>
 
-
 <!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-		
-            <!-- Entries Column -->
-            <div class="col-md-8">
-                
-                <!-- Main Image -->
-                <img class="img-responsive " src="self.JPG" alt="Stockholm"><br>
-                
-                <div style="margin-top:3%; text-align:justify;">        
-                  <p>I am a fourth year PhD candidate at Cornell Tech advised by <a href="https://tech.cornell.edu/people/wendy-ju/">Professor Wendy Ju</a> in the Information Science Department. I am also a doctoral fellow at the <a href="https://www.dli.tech.cornell.edu/">Digital Life Initiative (DLI)</a> and a member of the <a href="https://irl.tech.cornell.edu/">Interaction Research Lab (IRL)</a>. I received my BA in Computer Science from Hunter College. </p>
-
-                  <p>My research uses fine-grained behavioral analysis of human interactions to inform the design of context-aware digital assistance systems. By modeling human behaviors through multimodal signals, I investigate when and how technological systems should collaborate or provide support. I combine qualitative methods with system prototyping to translate insights from human behavior into the design of effective human-AI interactions.</p>
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Merriweather', serif; font-size: 32px;">Stacey Li</div>
-                <p>PhD Candidate<br>
-                Information Science Department<br>
-                Cornell University, Cornell Tech<br>
-                </p>
-            </div>
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="https://scholar.google.com/citations?user=550jbV4AAAAJ">Google Scholar</a></dd> 
-              <dd><a href="https://www.linkedin.com/in/staceylii">LinkedIn</a></dd> 
-            </div>
-
-
-<!--             <div class="col-md-8">    
-              <h3 id="publications">News</h3>
-
-              <ol>
-                <li>[11/15] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe. </li>
-                <li>[5/28] Start my summer internship at Toyota Research Institute. </li>
-                <li>[5/14] Presented our work Portobello at CHI and received an Honoranle Mention Award!</li>
-                <li>[3/25] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
-              </ol> 
-          </div> -->
-            
-            <!-- Publications -->
-            <div class="col-md-8">    
-                <h3 id="publications">Selected Publications</h3>
-
-                <ol type="1">
-                  <li>Bu, Fanjun, <strong>Stacey Li</strong>, David Goedicke, Mark Colley, Gyanendra Sharma, and Wendy Ju. "Portobello: Extending Driving Simulation from the Lab to the Road." In Proceedings of the CHI Conference on Human Factors in Computing Systems, pp. 1-13. 2024. <strong>Honorable Mention Award</strong></li>
-                  <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">[Paper]</a> <a href="https://youtu.be/Y-R6iiF60jY"> [Video Demo]</a>
-                  <li> Goedicke, David, Natalie Chyi, Alexandra Bremers, <strong>Stacey Li</strong>, James Grimmelmann, and Wendy Ju. "Mutual Benefit: The Case for Sharing Autonomous Vehicle Data with the Public." arXiv preprint arXiv:2409.01342 (2024).</li>
-                  <li> Suzuki, Saki, Ilan Mandel, <strong>Stacey Li</strong>, Wen-Ying Lee, Mark Colley, and Wendy Ju. "AdVANcing Design: Customizing Spaces for Vanlife." In Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 256-266. 2023.</li>
-                  <li> <strong>Li, Stacey</strong>, Sven Krome, Ilan Mandel, Marcel Walch, and Wendy Ju. "The PUEVA inventory: A toolkit to evaluate the personality, usability and enjoyability of voice agents." arXiv preprint arXiv:2112.10811 (2021). </li>
-                </ol> 
-            </div>
-
-            <!-- <div class="col-md-4">
-              <iframe width="360" height="202" src="https://www.youtube.com/embed/pS5ptE2USSo?si=0SEstzAjPPI0cc1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <iframe width="360" height="202" src="https://www.youtube.com/embed/Y-R6iiF60jY?si=Be04ICnV74s9fDLr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div> -->
-
-            <div class="col-md-8">    
-              <h3 id="publications">Teaching</h3>
-
-              <h4><b>Lecturer</b></h4>
-              <ul>
-                <li> [Summer 2025] <a href="https://www.breakthroughtech.org/programs/the-ai-program/"> Machine Learning Foundations </a> </li>
-              </ul>
-
-              <h4><b>Teaching Assistant</b></h4>
-              <ul>
-                <li> [Fall 2024/25] INFO5310. <a href="https://tech.cornell.edu/news/courses/c-psychological-and-social-aspects-of-technology/">Psychological and Social Aspects of Technology
-                </a> </li>
-                <li> [Spring 2025] INFO5305. <a href="https://classes.cornell.edu/browse/roster/SP24/class/INFO/5305">User Experience and User Research
-                </a> </li>
-                <li> [Fall 2022] INFO5345/CS5424/ECE5413.  <a href="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices"> Developing and Designing Interactive Devices</a> </li>
-              </ul> 
-          </div>
-
-            <!-- <div class="col-md-8">    
-              <h3 id="Press">Press</h3>
-
-              <ol type="1">
-                <li> Staff, <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business, April 12, 2023.</li>
-                <li> Ayesha Rascoe, <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April 16, 2023. </li>
-                <li> Patricia Waldron, <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost) everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
-                <li> Mike Snider, <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY, April 15, 2023. </li>
-                <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots > Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10, 2023.</li> 
-              </ol> 
-          </div>             -->
-        </div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#about">
+        <img src="s-cool-howto.gif" alt="logo" style="height: 40px;">
+      </a>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#about">Home</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
+<!-- Page Content -->
+<div class="container">
+  <div class="row main-row">
+
+    <!-- Sidebar -->
+    <div class="col-md-4 col-sm-12">
+      <div class="sidebar-sticky">
+      <img class="sidebar-photo img-responsive" src="self.JPG" alt="Stacey Li">
+      <div class="sidebar-name">Stacey Li</div>
+      <div class="sidebar-title">
+        PhD Candidate<br>
+        Information Science Department<br>
+        Cornell University, Cornell Tech
+      </div>
+      <ul class="sidebar-links">
+        <li><a href="https://scholar.google.com/citations?user=550jbV4AAAAJ">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/staceylii">LinkedIn</a></li>
+      </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-8 col-sm-12">
+
+      <!-- Bio -->
+      <div class="bio" id="about">
+        <p>I am a fourth year PhD candidate at Cornell Tech advised by <a href="https://tech.cornell.edu/people/wendy-ju/">Professor Wendy Ju</a> in the Information Science Department. I am also a doctoral fellow at the <a href="https://dli.tech.cornell.edu/">Digital Life Initiative (DLI)</a> and a member of the <a href="https://irl.tech.cornell.edu/">Interaction Research Lab (IRL)</a>. I received my BA in Computer Science from Hunter College.</p>
+        <p>My research uses fine-grained behavioral analysis of human interactions to inform the design of context-aware digital assistance systems. By modeling human behaviors through multimodal signals, I investigate when and how technological systems should collaborate or provide support. I combine qualitative methods with system prototyping to translate insights from human behavior into the design of effective human-AI interactions.</p>
+      </div>
+
+      <!-- Publications -->
+      <h3 id="publications">Selected Publications</h3>
+      <ol class="publications-list">
+        <li><strong>Li, Stacey</strong>, Debargha Dey, Claudia Santacruz, and Wendy Ju. "What Researchers Need from Driving Simulator Systems: A Thematic Analysis of Expert Interviews." In Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 55-68. 2025.</li>
+        <li>
+          Bu, Fanjun, <strong>Stacey Li</strong>, David Goedicke, Mark Colley, Gyanendra Sharma, and Wendy Ju. "Portobello: Extending Driving Simulation from the Lab to the Road." In Proceedings of the CHI Conference on Human Factors in Computing Systems, pp. 1-13. 2024. <strong>Honorable Mention Award</strong>
+          <div class="pub-links">
+            <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">[Paper]</a>
+            <a href="https://youtu.be/Y-R6iiF60jY">[Video Demo]</a>
+          </div>
+        </li>
+        <li>Goedicke, David, Natalie Chyi, Alexandra Bremers, <strong>Stacey Li</strong>, James Grimmelmann, and Wendy Ju. "Mutual Benefit: The Case for Sharing Autonomous Vehicle Data with the Public." arXiv preprint arXiv:2409.01342 (2024).</li>
+        <li>Suzuki, Saki, Ilan Mandel, <strong>Stacey Li</strong>, Wen-Ying Lee, Mark Colley, and Wendy Ju. "AdVANcing Design: Customizing Spaces for Vanlife." In Proceedings of the 15th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 256-266. 2023.</li>
+        <li><strong>Li, Stacey</strong>, Sven Krome, Ilan Mandel, Marcel Walch, and Wendy Ju. "The PUEVA inventory: A toolkit to evaluate the personality, usability and enjoyability of voice agents." arXiv preprint arXiv:2112.10811 (2021).</li>
+      </ol>
+
+      <!-- Teaching -->
+      <h3 id="teaching">Teaching</h3>
+
+      <h4>Lecturer</h4>
+      <ul>
+        <li>[Summer 2025] <a href="https://www.breakthroughtech.org/programs/the-ai-program/">Machine Learning Foundations</a></li>
+      </ul>
+
+      <h4>Teaching Assistant</h4>
+      <ul>
+        <li>[Fall 2024/25] INFO5310. <a href="https://tech.cornell.edu/news/courses/c-psychological-and-social-aspects-of-technology/">Psychological and Social Aspects of Technology</a></li>
+        <li>[Spring 2025] INFO5305. <a href="https://classes.cornell.edu/browse/roster/SP24/class/INFO/5305">User Experience and User Research</a></li>
+        <li>[Fall 2022] INFO5345/CS5424/ECE5413. <a href="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices">Developing and Designing Interactive Devices</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $('a[href^="#"]').on('click', function(e) {
+    var target = $(this.getAttribute('href'));
+    if (target.length) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: target.offset().top - 60 }, 400);
+    }
+  });
+</script>
+
+</body>
 </html>
