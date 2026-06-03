@@ -413,6 +413,9 @@
     var sLogoTimer = null;
     $('.navbar-brand').on('click', function(e) {
       e.preventDefault();
+      e.stopImmediatePropagation();
+      var scrollTarget = window.innerWidth < 768 ? 0 : $('#about').offset().top - 60;
+      $('html, body').animate({ scrollTop: scrollTarget }, 400);
       if (sLogoTimer) clearTimeout(sLogoTimer);
       $('.s-hover').addClass('s-active');
       $('.sidebar-title').css('transition', 'margin-top 0.4s').addClass('s-expanded');
