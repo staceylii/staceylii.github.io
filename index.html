@@ -331,15 +331,19 @@
     document.body.classList.add('touch-device');
   }
 
-  $('.s-hover').on('mouseenter', function() {
-    if ($(this).closest('.sidebar-name').length) {
-      $('.sidebar-title').css('transition', 'margin-top 0.4s').addClass('s-expanded');
-    }
-  }).on('mouseleave', function() {
-    if ($(this).closest('.sidebar-name').length) {
-      $('.sidebar-title').css('transition', 'margin-top 0.9s').removeClass('s-expanded');
-    }
-  }).on('touchend', function(e) {
+  if (window.matchMedia('(hover: hover)').matches) {
+    $('.s-hover').on('mouseenter', function() {
+      if ($(this).closest('.sidebar-name').length) {
+        $('.sidebar-title').css('transition', 'margin-top 0.4s').addClass('s-expanded');
+      }
+    }).on('mouseleave', function() {
+      if ($(this).closest('.sidebar-name').length) {
+        $('.sidebar-title').css('transition', 'margin-top 0.9s').removeClass('s-expanded');
+      }
+    });
+  }
+
+  $('.s-hover').on('touchend', function(e) {
     e.preventDefault();
     var $this = $(this);
     if ($this.hasClass('s-active')) {
