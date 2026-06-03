@@ -114,9 +114,9 @@
       }
     }
     /* touch: suppress hover, use .s-active instead */
-    .touch-device .s-hover:hover { padding-right: 0; }
-    .touch-device .s-hover:hover .s-hover-img { opacity: 0; animation: none; }
-    .touch-device .s-hover:hover .s-letter { opacity: 1; }
+    .touch-device .s-hover:not(.s-active):hover { padding-right: 0; }
+    .touch-device .s-hover:not(.s-active):hover .s-hover-img { opacity: 0; animation: none; }
+    .touch-device .s-hover:not(.s-active):hover .s-letter { opacity: 1; }
     .s-hover.s-active {
       padding-right: 0.35em;
       transition: padding-right 0.4s;
