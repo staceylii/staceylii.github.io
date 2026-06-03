@@ -169,6 +169,31 @@
       margin-bottom: 5px;
     }
 
+    @media (max-width: 767px) {
+      .sidebar-sticky {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "photo photo"
+          "name  name"
+          "title links";
+      }
+      .sidebar-photo {
+        grid-area: photo;
+        max-width: 100%;
+      }
+      .sidebar-name {
+        grid-area: name;
+      }
+      .sidebar-title {
+        grid-area: title;
+      }
+      .sidebar-links {
+        grid-area: links;
+        text-align: right;
+      }
+    }
+
     /* Headings */
     h3 {
       font-family: 'Merriweather', serif;
