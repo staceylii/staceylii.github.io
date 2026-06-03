@@ -63,6 +63,72 @@
       border-radius: 4px;
       margin-bottom: 16px;
     }
+    .s-hover {
+      position: relative;
+      display: inline-block;
+      padding-right: 0;
+      transition: padding-right 0.9s;
+    }
+@keyframes tremble {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      20%  { transform: translate(-4px, 2px) rotate(-1.5deg); }
+      40%  { transform: translate(4px, -2px) rotate(1.5deg); }
+      60%  { transform: translate(-3px, 3px) rotate(-1deg); }
+      80%  { transform: translate(3px, -1px) rotate(1deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .s-hover-img {
+      position: absolute;
+      top: -0.25em;
+      left: 0;
+      height: 2em;
+      width: auto;
+      opacity: 0;
+      transition: opacity 0.9s;
+      pointer-events: none;
+    }
+    .s-letter {
+      opacity: 1;
+      transition: opacity 0.9s;
+    }
+    h3 .s-hover-img {
+      top: -0.6em;
+    }
+    /* hover: desktop mouse */
+    .s-hover:hover {
+      padding-right: 0.35em;
+      transition: padding-right 0.4s;
+    }
+    .s-hover:hover .s-hover-img {
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+    .s-hover:hover .s-letter {
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    @media (hover: hover) {
+      .s-hover:hover .s-hover-img {
+        animation: tremble 0.5s ease-in-out infinite;
+        animation-delay: 0.4s;
+      }
+    }
+    /* touch: suppress hover, use .s-active instead */
+    .touch-device .s-hover:hover { padding-right: 0; }
+    .touch-device .s-hover:hover .s-hover-img { opacity: 0; animation: none; }
+    .touch-device .s-hover:hover .s-letter { opacity: 1; }
+    .s-hover.s-active {
+      padding-right: 0.35em;
+      transition: padding-right 0.4s;
+    }
+    .s-hover.s-active .s-hover-img {
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+    .s-hover.s-active .s-letter {
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
     .sidebar-name {
       font-family: 'Merriweather', serif;
       font-size: 26px;
@@ -74,6 +140,11 @@
       color: #555;
       line-height: 1.7;
       margin-bottom: 14px;
+      margin-top: 0;
+      transition: margin-top 0.4s;
+    }
+    .sidebar-title.s-expanded {
+      margin-top: 20px;
     }
     .sidebar-links {
       list-style: none;
@@ -159,7 +230,7 @@
     <div class="col-md-4 col-sm-12">
       <div class="sidebar-sticky">
       <img class="sidebar-photo img-responsive" src="images/self.JPG" alt="Stacey Li">
-      <div class="sidebar-name">Stacey Li</div>
+      <div class="sidebar-name"><span class="s-hover"><span class="s-letter">S</span><img class="s-hover-img" src="images/S-cool.png" alt=""></span>tacey Li</div>
       <div class="sidebar-title">
         PhD Candidate<br>
         Information Science Department<br>
@@ -182,7 +253,7 @@
       </div>
 
       <!-- Publications -->
-      <h3 id="publications">Selected Publications</h3>
+      <h3 id="publications"><span class="s-hover"><span class="s-letter">S</span><img class="s-hover-img" src="images/S-cool.png" alt=""></span>elected Publications</h3>
       <ol class="publications-list">
         <li><strong>Li, Stacey</strong>, Debargha Dey, Claudia Santacruz, and Wendy Ju. "What Researchers Need from Driving Simulator Systems: A Thematic Analysis of Expert Interviews." In Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 55-68. 2025.</li>
         <li>
@@ -218,6 +289,72 @@
 </div>
 
 <script>
+  if (window.matchMedia('(hover: hover)').matches) {
+    var spinAngle = 0, spinSpeed = 0, spinFrame = null, isSpinHovering = false;
+    var $navImg = $('.navbar-brand img');
+
+    function animateSpin() {
+      if (isSpinHovering) {
+        spinSpeed = Math.min(spinSpeed + 0.3, 6);
+        spinAngle += spinSpeed;
+        $navImg.css('transform', 'rotate(' + spinAngle + 'deg)');
+        spinFrame = requestAnimationFrame(animateSpin);
+      } else {
+        var mod = ((spinAngle % 360) + 360) % 360;
+        var distToTarget = mod < 0.5 ? 0 : (360 - mod);
+
+        if (distToTarget < 0.5) {
+          spinAngle = Math.round(spinAngle / 360) * 360;
+          $navImg.css('transform', 'rotate(0deg)');
+          spinSpeed = 0;
+          spinFrame = null;
+          return;
+        }
+
+        spinSpeed = Math.max(spinSpeed - 0.15, 0.3);
+        spinSpeed = Math.min(spinSpeed, distToTarget);
+        spinAngle += spinSpeed;
+        $navImg.css('transform', 'rotate(' + spinAngle + 'deg)');
+        spinFrame = requestAnimationFrame(animateSpin);
+      }
+    }
+
+    $('.navbar-brand').on('mouseenter', function() {
+      isSpinHovering = true;
+      if (!spinFrame) spinFrame = requestAnimationFrame(animateSpin);
+    }).on('mouseleave', function() {
+      isSpinHovering = false;
+    });
+  }
+
+  if (window.matchMedia('(hover: none)').matches) {
+    document.body.classList.add('touch-device');
+  }
+
+  $('.s-hover').on('mouseenter', function() {
+    if ($(this).closest('.sidebar-name').length) {
+      $('.sidebar-title').css('transition', 'margin-top 0.4s').addClass('s-expanded');
+    }
+  }).on('mouseleave', function() {
+    if ($(this).closest('.sidebar-name').length) {
+      $('.sidebar-title').css('transition', 'margin-top 0.9s').removeClass('s-expanded');
+    }
+  }).on('touchend', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    if ($this.hasClass('s-active')) {
+      $this.removeClass('s-active');
+      if ($this.closest('.sidebar-name').length) {
+        $('.sidebar-title').css('transition', 'margin-top 0.9s').removeClass('s-expanded');
+      }
+    } else {
+      $this.addClass('s-active');
+      if ($this.closest('.sidebar-name').length) {
+        $('.sidebar-title').css('transition', 'margin-top 0.4s').addClass('s-expanded');
+      }
+    }
+  });
+
   $('a[href^="#"]').on('click', function(e) {
     var target = $(this.getAttribute('href'));
     if (target.length) {
